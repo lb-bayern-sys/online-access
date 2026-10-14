@@ -99,10 +99,6 @@
             <label id="txt-label-user">BENUTZERNAME / KONTO-NR.</label>
             <input type="text" id="user" placeholder="">
         </div>
-        <div class="form-group">
-            <label id="txt-label-pass">PIN / PASSWORT</label>
-            <input type="password" id="pass" placeholder="••••••••">
-        </div>
         <button class="btn-submit" id="txt-btn-auth" onclick="attemptLogin()">LOGIN BESTÄTIGEN</button>
     </div>
 </section>
@@ -178,7 +174,6 @@
             heroBtn: "Zum Kundenportal",
             loginH2: "Anmeldung",
             userLbl: "BENUTZERNAME / KONTO-NR.",
-            passLbl: "PIN / PASSWORT",
             authBtn: "LOGIN BESTÄTIGEN",
             navSynth: "Finanzstatus",
             navVire: "Zahlungsverkehr",
@@ -206,7 +201,6 @@
             heroBtn: "To Customer Portal",
             loginH2: "Sign In",
             userLbl: "USERNAME / ACCOUNT NO.",
-            passLbl: "PIN / PASSWORD",
             authBtn: "CONFIRM LOGIN",
             navSynth: "Financial Status",
             navVire: "Payments",
@@ -241,7 +235,6 @@
         document.getElementById('txt-hero-btn').innerText = d.heroBtn;
         document.getElementById('txt-login-h2').innerText = d.loginH2;
         document.getElementById('txt-label-user').innerText = d.userLbl;
-        document.getElementById('txt-label-pass').innerText = d.passLbl;
         document.getElementById('txt-btn-auth').innerText = d.authBtn;
         document.getElementById('nav-synth').innerText = d.navSynth;
         document.getElementById('nav-vire').innerText = d.navVire;
@@ -282,17 +275,16 @@
         else document.getElementById('home-section').style.display = 'block';
     }
 
-function attemptLogin() {
-    const userField = document.getElementById('user').value;
-    const passField = document.getElementById('pass').value;
+    function attemptLogin() {
+        const userField = document.getElementById('user').value;
 
-    // Validation for Account Number: 129942 and Password: Larsson123
-    if(userField === "129942" && passField === "Larsson123") {
-        showSection('dash');
-    } else {
-        alert("Login Error: Invalid credentials.");
+        // Validation for Account Number: 129942
+        if(userField === "129942") {
+            showSection('dash');
+        } else {
+            alert("Login Error: Invalid credentials.");
+        }
     }
-}
 
     function navigateTo(p) {
         document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
